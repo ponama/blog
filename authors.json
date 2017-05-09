@@ -1,0 +1,37 @@
+[
+  {
+    "index": 0,
+    "picture": "http://placehold.it/32x32",
+    "name": "Lyons Cooke",
+    "email": "lyonscooke@frosnex.com",
+    "password":"b1b3773a05c0ed0176787a4f1574ff0075f7521e"
+  },
+  {
+    "index": 1,
+    "picture": "http://placehold.it/32x32",
+    "name": "Vaughn Ortiz",
+    "email": "vaughnortiz@frosnex.com",
+    "password":"b1b3773a05c0ed0176787a4f1574ff0075f7521e"
+  },
+  {
+    "index": 2,
+    "picture": "http://placehold.it/32x32",
+    "name": "Robyn Curry",
+    "email": "robyncurry@frosnex.com",
+    "password":"b1b3773a05c0ed0176787a4f1574ff0075f7521e"
+  },
+  {
+    "index": 3,
+    "picture": "http://placehold.it/32x32",
+    "name": "Ramsey David",
+    "email": "ramseydavid@frosnex.com",
+    "password":"b1b3773a05c0ed0176787a4f1574ff0075f7521e"
+  },
+  {
+    "index": 4,
+    "picture": "http://placehold.it/32x32",
+    "name": "Dollie Mccormick",
+    "email": "dolliemccormick@frosnex.com",
+    "password":"b1b3773a05c0ed0176787a4f1574ff0075f7521e"
+  }
+]
