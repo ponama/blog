@@ -19,10 +19,47 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+	<script type="text/javascript" src="/script.js"></script>
+
 	<style type="text/css">@media (min-width: 768px){
 	.navbar-right {
 	margin-right: 15px;
-	}}</style>
+	}
+	/* Animation */
+	@-webkit-keyframes loading {
+	  to { -webkit-transform: rotate(360deg); }
+	}
+	@-moz-keyframes loading {
+		to { -moz-transform: rotate(360deg); }
+	}
+	@-ms-keyframes loading {
+		to { -ms-transform: rotate(360deg); }
+	}
+	@keyframes loading {
+		to { transform: rotate(360deg); }
+	}
+
+	/* Loader (*/
+	#loading {
+
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: transparent;
+		margin: 10px auto;
+		
+		border-top: 4px solid #fff;
+		border-right: 4px solid #fff;
+		border-bottom: 4px solid #777;
+		border-left: 4px solid #777;
+		
+		-webkit-animation: loading 1.2s infinite linear;
+		-moz-animation: loading 1.2s infinite linear;
+		-ms-animation: loading 1.2s infinite linear;
+		animation: loading 1.2s infinite linear;
+		
+	}
+	}</style>
 
 	<title>Starter Template for Bootstrap</title>
 </head>
@@ -39,13 +76,13 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Project name</a>
+						<a class="navbar-brand" href="#">BLOG</a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
+<!-- 						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li> -->
 					</ul>
 					<form class="navbar-form navbar-right">
 						<div class="form-group">
@@ -71,8 +108,9 @@
 	<div class="container marketing">
 	<!-- START THE FEATURETTES -->
 	<% articles.forEach(function(article, i){ %>
+	<hr class="featurette-divider">
 	<% if(i%2===0){ %>
-		<div class="row featurette">
+		<div class="row featurette" data-id="<%= article.index%>">
 			<div class="col-md-7">
 				<h2 class="featurette-heading"><%= article.name %></h2>
 				<p class="lead"><%= article.smallBody %></p>
@@ -84,7 +122,7 @@
 		</div>
 
 	<% } else { %>
-		<div class="row featurette">
+		<div class="row featurette" data-id="<%= article.index%>">
 			<div class="col-md-7 col-md-push-5">
 				<h2 class="featurette-heading"><%= article.name %></h2>
 				<p class="lead"><%= article.smallBody %></p>
@@ -94,26 +132,15 @@
 			<div class="col-md-5 col-md-pull-7">
 				<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="500x500" src="<%= article.picture %>" data-holder-rendered="true">
 			</div>
+
 		</div>
 	<% } %>
-	<hr class="featurette-divider">
+		
 	<% }); %>
-
+	</div>
 
 
 	<!-- /END THE FEATURETTES -->
-
-
-	<!-- FOOTER -->
-		<footer>
-			<p class="pull-right"><a href="#">Back to top</a></p>
-			<p>© 2016 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-		</footer>
-
-	</div><!-- /.container -->
-
-
-
 	<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg>
 </body>
 </html>

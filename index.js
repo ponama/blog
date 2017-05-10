@@ -15,12 +15,13 @@ var sha1 = require('sha1');
 
 
 
-
+//home page
 app.get('/', function (req, res) {
 	MongoClient.connect('mongodb://localhost:27017/myblog', function(err, db) {
 		console.log("Connected correctly to server");
 		db.collection('posts')
 		.find()
+		.limit(6)
 		.toArray(function(err, docs) {
 		if(err){
 			return console.log(err)
@@ -33,7 +34,30 @@ app.get('/', function (req, res) {
 	});
 });
 
+//home page infinit scroll
+app.post('/', function (req, res) {
+	console.log(Number(req.body.lastPost));
+	MongoClient.connect('mongodb://localhost:27017/myblog', function(err, db) {
+		console.log("Connected correctly to server");
+		db.collection('posts')
+		.find({index: {$gt: Number(req.body.lastPost)}})
+		.limit(6)
+		.toArray(function(err, docs) {
+			if(err){
+				return console.log(err)
+			}
+				db.collection('posts')
 
+				console.log(docs);
+
+				db.close();
+				res.json(docs);
+
+		});
+	});
+});
+
+//post page
 app.get('/posts/:id', function (req, res) {
 	MongoClient.connect('mongodb://localhost:27017/myblog', function(err, db) {
 		console.log("Connected correctly to server", req.params.id);
@@ -75,6 +99,7 @@ app.get('/posts/:id', function (req, res) {
 	
 });
 
+//adding the comment
 app.post('/posts/:id', function(req,res){
 	MongoClient.connect('mongodb://localhost:27017/myblog', function(err, db) {
 		console.log("Connected correctly to server", req.body.id);
